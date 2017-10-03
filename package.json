@@ -5,11 +5,13 @@
   "main": "source/index.js",
   "scripts": {
     "start": "webpack-dev-server",
+    "storybook": "start-storybook -p 9001",
     "build": "cross-env NODE_ENV=production webpack",
     "prebuild": "rm -rf ./build",
     "build:analyze": "cross-env NODE_ENV=production ANALYZE=true npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "lint": "eslint source webpack"
+    "lint": "eslint source webpack",
+    "build-storybook": "build-storybook"
   },
   "author": "Andrey Romanov <me@andrew-r.ru>",
   "license": "MIT",
@@ -40,7 +42,8 @@
     "url-loader": "0.5.9",
     "webpack": "3.6.0",
     "webpack-bundle-analyzer": "2.9.0",
-    "webpack-dev-server": "2.9.1"
+    "webpack-dev-server": "2.9.1",
+    "@storybook/react": "^3.2.12"
   },
   "dependencies": {
     "react": "16.0.0",
