@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render 1`] = `
+<h1
+  className="hello-root-2SwKH"
+>
+  Hello, world!
+</h1>
+`;

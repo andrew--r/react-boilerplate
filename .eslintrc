@@ -10,7 +10,8 @@
   },
   "env": {
     "browser": true,
-    "node": true
+    "node": true,
+    "jest": true
   },
   "rules": {
     "max-len": 0,
@@ -29,7 +30,8 @@
       "devDependencies": [
         "postcss.config.js",
         "**/webpack/**/*.js",
-        "**/*.story.js"
+        "**/*.story.js",
+        "**/*.spec.js"
       ]
     }],
     "react/require-extension": "off",
