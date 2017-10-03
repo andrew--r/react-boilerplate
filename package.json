@@ -11,10 +11,11 @@
     "build:analyze": "cross-env NODE_ENV=production ANALYZE=true npm run build",
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint source webpack",
+    "qa": "npm run lint",
     "build-storybook": "build-storybook"
   },
   "pre-commit": [
-    "lint"
+    "qa"
   ],
   "author": "Andrey Romanov <me@andrew-r.ru>",
   "license": "MIT",
