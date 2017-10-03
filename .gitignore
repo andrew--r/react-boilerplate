@@ -4,6 +4,7 @@
 
 # Build
 build/
+storybook-static/
 
 # Development stuff
 platforms/
