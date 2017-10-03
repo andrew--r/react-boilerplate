@@ -1,0 +1,20 @@
+# General files
+*~
+.DS_Store
+
+# Build
+build/
+
+# Development stuff
+platforms/
+plugins/
+node_modules/
+coverage/
+npm-debug.log
+static/index.appcache
+*.sublime-workspace
+*.pyc
+.vagrant
+.idea
+.vscode
+npm-debug.*
