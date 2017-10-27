@@ -10,13 +10,7 @@ module.exports = {
   plugins: [
     ...baseConfig.plugins,
     extractCSS,
-    new UglifyJsPlugin({
-      compress: {
-        warnings: false,
-        screw_ie8: true,
-      },
-      comments: false,
-    }),
+    new UglifyJsPlugin(),
   ],
 
   module: {
