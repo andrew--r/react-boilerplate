@@ -6,11 +6,14 @@ import Hello from './components/hello';
 const targetNode = document.getElementById('app');
 
 function render() {
-  ReactDOM.render((
-    <AppContainer>
-      <Hello />
-    </AppContainer>
-  ), targetNode);
+  ReactDOM.render(
+    (
+      <AppContainer>
+        <Hello />
+      </AppContainer>
+    ),
+    targetNode,
+  );
 }
 
 if (module.hot) {
