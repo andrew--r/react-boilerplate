@@ -1,39 +1,52 @@
-const path = require('path');
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-
 const {
-  NODE_ENV = 'development',
-  ANALYZE = false,
-} = process.env;
-
-const SOURCE_DIR = path.resolve(__dirname, '../source');
-const BUILD_DIR = path.resolve(__dirname, '../build');
+  sourceDir,
+  buildDir,
+  nodeEnv,
+  isDebugEnabled,
+} = require('./common');
 
 const config = {
   entry: [
-    `${SOURCE_DIR}/index.js`,
+    `${sourceDir}/index.js`,
+    `${sourceDir}/global.css`,
   ],
 
   output: {
-    path: path.resolve(__dirname, BUILD_DIR),
+    path: buildDir,
     publicPath: '/',
     filename: 'app.js',
   },
 
-  devtool: 'source-map',
-
   resolve: {
     extensions: ['.js', '.jsx'],
+    alias: {
+      '~': sourceDir,
+    },
   },
 
   module: {
     rules: [
       {
         test: /\.jsx?$/,
-        exclude: /(node_modules)/,
         use: 'babel-loader',
+      },
+      {
+        test: /\.png$/,
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          mimetype: 'image/png',
+        },
+      },
+      {
+        test: /\.gif$/,
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          mimetype: 'image/gif',
+        },
       },
       {
         test: /\.svg$/,
@@ -43,15 +56,23 @@ const config = {
           mimetype: 'image/svg+xml',
         },
       },
+      {
+        test: /\.jpg$/,
+        loader: 'url-loader',
+        options: {
+          limit: 100000,
+          mimetype: 'image/jpg',
+        },
+      },
     ],
   },
 
   plugins: [
     new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(NODE_ENV),
+      'process.env.NODE_ENV': JSON.stringify(nodeEnv),
     }),
     new HtmlWebpackPlugin({
-      template: `${SOURCE_DIR}/index.html`,
+      template: `${sourceDir}/index.html`,
       hash: true,
       minify: {
         collapseWhitespace: true,
@@ -60,11 +81,8 @@ const config = {
   ],
 };
 
-if (ANALYZE) {
-  config.plugins = [
-    ...config.plugins,
-    new BundleAnalyzerPlugin(),
-  ];
+if (isDebugEnabled) {
+  config.devtool = 'source-map';
 }
 
 module.exports = config;

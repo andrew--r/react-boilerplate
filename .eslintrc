@@ -13,10 +13,20 @@
     "node": true,
     "jest": true
   },
+  "settings": {
+    "import/resolver": "webpack"
+  },
   "rules": {
+    "no-plusplus": 0,
     "max-len": 0,
     "react/prefer-stateless-function": 0,
     "react/jsx-filename-extension": 0,
+    "no-return-assign": 0,
+    "indent": ["error", 2, {
+      "SwitchCase": 1
+    }],
+    "react/jsx-indent": ["error", 2],
+    "react/jsx-indent-props": ["error", 2],
     "padding-line-between-statements": [
       "error",
       { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
@@ -26,6 +36,7 @@
     "no-multiple-empty-lines": ["error", {
       "max": 1
     }],
+    "arrow-parens": ["error", "always"],
     "import/no-extraneous-dependencies": ["error", {
       "devDependencies": [
         "postcss.config.js",
@@ -35,6 +46,12 @@
       ]
     }],
     "react/require-extension": "off",
-    "react/prefer-es6-class": ["warn", "always"]
+    "react/prefer-es6-class": ["warn", "always"],
+    "jsx-a11y/label-has-for": [2, {
+      "required": {
+          "every": ["id"]
+      }
+    }]
   }
 }
+

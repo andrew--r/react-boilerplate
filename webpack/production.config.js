@@ -10,7 +10,14 @@ module.exports = {
   plugins: [
     ...baseConfig.plugins,
     extractCSS,
-    new UglifyJsPlugin(),
+    new UglifyJsPlugin({
+      sourceMap: true,
+      uglifyOptions: {
+        output: {
+          comments: false,
+        },
+      },
+    }),
   ],
 
   module: {
@@ -32,12 +39,5 @@ module.exports = {
         ]),
       },
     ],
-  },
-
-  devServer: {
-    host: 'localhost',
-    port: 3000,
-    historyApiFallback: true,
-    hot: true,
   },
 };

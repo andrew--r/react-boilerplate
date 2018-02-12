@@ -17,7 +17,7 @@ function render() {
 }
 
 if (module.hot) {
-  module.hot.accept('./components/hello', () => render());
+  module.hot.accept(render);
 }
 
 render();

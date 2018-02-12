@@ -1,31 +1,40 @@
 {
   "presets": [
-    ["es2015", { "modules": false }],
-    "react"
+    "react",
+    ["env", {
+      "modules": false,
+      "targets": {
+        "browsers": ["last 2 versions"]
+      }
+    }]
+  ],
+  "plugins": [
+    "react-hot-loader/babel",
+    "syntax-object-rest-spread",
+    "transform-object-rest-spread",
+    "syntax-class-properties",
+    "transform-class-properties"
   ],
   "env": {
     "test": {
-      "presets": [["es2015"], "react"],
+      "presets": [
+        "react",
+        ["env", {
+          "targets": {
+            "node": "current"
+          }
+        }]
+      ],
       "plugins": [
         "syntax-object-rest-spread",
         "transform-object-rest-spread",
         "syntax-class-properties",
         "transform-class-properties",
-        [
-          "css-modules-transform",
-          {
-              "generateScopedName": "[name]-[local]-[hash:base64:5]",
-              "extensions": [".css"]
-          }
-        ]
+        ["css-modules-transform", {
+          "generateScopedName": "[name]-[local]-[hash:base64:5]",
+          "extensions": [".css"]
+        }]
       ]
     }
   },
-  "plugins": [
-    "syntax-object-rest-spread",
-    "transform-object-rest-spread",
-    "syntax-class-properties",
-    "transform-class-properties",
-    "react-hot-loader/babel"
-  ]
 }

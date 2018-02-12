@@ -12,7 +12,6 @@ plugins/
 node_modules/
 coverage/
 npm-debug.log
-static/index.appcache
 *.sublime-workspace
 *.pyc
 .vagrant
