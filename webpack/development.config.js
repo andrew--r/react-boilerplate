@@ -4,6 +4,8 @@ const baseConfig = require('./base.config');
 module.exports = {
   ...baseConfig,
 
+  mode: 'development',
+
   entry: [
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
@@ -14,8 +16,6 @@ module.exports = {
   plugins: [
     ...baseConfig.plugins,
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NamedModulesPlugin(),
-    new webpack.NoEmitOnErrorsPlugin(),
   ],
 
   module: {

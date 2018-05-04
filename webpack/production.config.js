@@ -7,6 +7,8 @@ const extractCSS = new ExtractTextPlugin('app.css');
 module.exports = {
   ...baseConfig,
 
+  mode: 'production',
+
   plugins: [
     ...baseConfig.plugins,
     extractCSS,
