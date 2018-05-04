@@ -1,6 +1,6 @@
 import React from 'react';
 import renderer from 'react-test-renderer';
-import Hello from './';
+import { Hello } from './';
 
 test('should render', () => {
   const component = renderer.create((
