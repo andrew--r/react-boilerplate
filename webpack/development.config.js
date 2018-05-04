@@ -13,10 +13,7 @@ module.exports = {
     ...baseConfig.entry,
   ],
 
-  plugins: [
-    ...baseConfig.plugins,
-    new webpack.HotModuleReplacementPlugin(),
-  ],
+  plugins: [...baseConfig.plugins, new webpack.HotModuleReplacementPlugin()],
 
   module: {
     ...baseConfig.module,

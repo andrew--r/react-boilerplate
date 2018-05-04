@@ -1,17 +1,9 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const {
-  sourceDir,
-  buildDir,
-  nodeEnv,
-  isDebugEnabled,
-} = require('./common');
+const { sourceDir, buildDir, nodeEnv, isDebugEnabled } = require('./common');
 
 const config = {
-  entry: [
-    `${sourceDir}/index.js`,
-    `${sourceDir}/global.css`,
-  ],
+  entry: [`${sourceDir}/index.js`, `${sourceDir}/global.css`],
 
   output: {
     path: buildDir,

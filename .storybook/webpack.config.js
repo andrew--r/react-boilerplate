@@ -13,8 +13,8 @@ module.exports = {
             options: {
               modules: true,
               localIdentName: '[name]-[local]-[hash:base64:5]',
-            }
-          }
+            },
+          },
         ],
       },
       {

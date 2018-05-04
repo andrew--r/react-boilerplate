@@ -2,6 +2,8 @@
   "name": "react-boilerplate",
   "version": "1.0.0",
   "description": "",
+  "author": "Andrey Romanov <me@andrew-r.ru>",
+  "license": "MIT",
   "main": "source/index.js",
   "engines": {
     "node": "^8.9.4",
@@ -13,15 +15,17 @@
     "build-storybook": "build-storybook",
     "prebuild": "rm -rf ./build && mkdir ./build",
     "build": "NODE_ENV=production webpack",
-    "test": "jest --silent",
-    "lint": "eslint source webpack",
-    "qa": "npm run lint && npm run test"
+    "test": "npm-run-all --parallel test:*",
+    "test:unit": "jest --silent",
+    "test:lint": "eslint source webpack",
+    "precommit": "lint-staged && npm test"
   },
-  "author": "Andrey Romanov <me@andrew-r.ru>",
-  "license": "MIT",
-  "pre-commit": [
-    "qa"
-  ],
+  "lint-staged": {
+    "*.{js,json,md,css}": [
+      "prettier --write",
+      "git add"
+    ]
+  },
   "dependencies": {
     "prop-types": "15.6.1",
     "react": "16.3.2",
@@ -45,6 +49,7 @@
     "css-loader": "0.28.11",
     "eslint": "4.19.1",
     "eslint-config-airbnb": "^16.1.0",
+    "eslint-config-prettier": "2.9.0",
     "eslint-import-resolver-webpack": "0.9.0",
     "eslint-plugin-import": "2.11.0",
     "eslint-plugin-jsx-a11y": "^6.0.3",
@@ -52,7 +57,10 @@
     "extract-text-webpack-plugin": "4.0.0-beta.0",
     "file-loader": "1.1.11",
     "html-webpack-plugin": "3.2.0",
+    "husky": "0.14.3",
     "jest": "22.4.3",
+    "lint-staged": "7.0.5",
+    "npm-run-all": "4.1.2",
     "postcss-calc": "6.0.1",
     "postcss-csso": "3.0.0",
     "postcss-custom-properties": "7.0.0",
@@ -61,7 +69,7 @@
     "postcss-import-webpack-resolver": "1.0.1",
     "postcss-loader": "2.1.4",
     "postcss-nesting": "5.0.0",
-    "pre-commit": "1.2.2",
+    "prettier": "1.12.1",
     "react-test-renderer": "16.3.2",
     "style-loader": "0.21.0",
     "uglifyjs-webpack-plugin": "1.2.5",

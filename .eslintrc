@@ -1,5 +1,5 @@
 {
-  "extends": "airbnb",
+  "extends": ["airbnb", "prettier"],
   "parser": "babel-eslint",
   "parserOptions": {
     "ecmaVersion": 6,
@@ -20,30 +20,44 @@
     "no-plusplus": 0,
     "max-len": 0,
     "no-return-assign": 0,
-    "indent": ["error", 2, {
-      "SwitchCase": 1
-    }],
+    "indent": [
+      "error",
+      2,
+      {
+        "SwitchCase": 1
+      }
+    ],
     "padding-line-between-statements": [
       "error",
-      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*"},
-      { "blankLine": "any",    "prev": ["const", "let", "var"], "next": ["const", "let", "var"]}
+      { "blankLine": "always", "prev": ["const", "let", "var"], "next": "*" },
+      {
+        "blankLine": "any",
+        "prev": ["const", "let", "var"],
+        "next": ["const", "let", "var"]
+      }
     ],
     "no-use-before-define": ["error", "nofunc"],
-    "no-multiple-empty-lines": ["error", {
-      "max": 1
-    }],
+    "no-multiple-empty-lines": [
+      "error",
+      {
+        "max": 1
+      }
+    ],
     "arrow-parens": ["error", "always"],
 
     "import/prefer-default-export": 0,
     "import/no-default-export": 2,
-    "import/no-extraneous-dependencies": ["error", {
-      "devDependencies": [
-        "postcss.config.js",
-        "**/webpack/**/*.js",
-        "**/*.story.js",
-        "**/*.spec.js"
-      ]
-    }],
+    "import/no-extraneous-dependencies": [
+      "error",
+      {
+        "devDependencies": [
+          "postcss.config.js",
+          "**/webpack/**/*.js",
+          "**/*.story.js",
+          "**/*.spec.js"
+        ]
+      }
+    ],
 
     "react/require-default-props": 0,
     "react/prefer-stateless-function": 0,
@@ -52,11 +66,13 @@
     "react/jsx-indent-props": ["error", 2],
     "react/require-extension": "off",
     "react/prefer-es6-class": ["warn", "always"],
-    "jsx-a11y/label-has-for": [2, {
-      "required": {
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "required": {
           "every": ["id"]
+        }
       }
-    }]
+    ]
   }
 }
-

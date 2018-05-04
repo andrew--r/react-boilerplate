@@ -1,12 +1,15 @@
 {
   "presets": [
     "react",
-    ["env", {
-      "modules": false,
-      "targets": {
-        "browsers": ["last 2 versions"]
+    [
+      "env",
+      {
+        "modules": false,
+        "targets": {
+          "browsers": ["last 2 versions"]
+        }
       }
-    }]
+    ]
   ],
   "plugins": [
     "react-hot-loader/babel",
@@ -19,22 +22,28 @@
     "test": {
       "presets": [
         "react",
-        ["env", {
-          "targets": {
-            "node": "current"
+        [
+          "env",
+          {
+            "targets": {
+              "node": "current"
+            }
           }
-        }]
+        ]
       ],
       "plugins": [
         "syntax-object-rest-spread",
         "transform-object-rest-spread",
         "syntax-class-properties",
         "transform-class-properties",
-        ["css-modules-transform", {
-          "generateScopedName": "[name]-[local]-[hash:base64:5]",
-          "extensions": [".css"]
-        }]
+        [
+          "css-modules-transform",
+          {
+            "generateScopedName": "[name]-[local]-[hash:base64:5]",
+            "extensions": [".css"]
+          }
+        ]
       ]
     }
-  },
+  }
 }
