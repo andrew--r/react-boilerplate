@@ -2,7 +2,7 @@
 
 exports[`should render 1`] = `
 <h1
-  className="hello-root-2SwKH"
+  className="styles-root-1Q-wE"
 >
   Hello, world!
 </h1>
