@@ -5,6 +5,7 @@ module.exports = {
   ...baseConfig,
 
   mode: 'development',
+  devtool: 'eval-source-map',
 
   entry: [
     'react-hot-loader/patch',

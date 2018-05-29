@@ -1,8 +1,8 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { sourceDir, buildDir, nodeEnv, isDebugEnabled } = require('./common');
+const { sourceDir, buildDir } = require('../config');
 
-const config = {
+module.exports = {
   entry: [`${sourceDir}/index.js`, `${sourceDir}/global.css`],
 
   output: {
@@ -60,9 +60,7 @@ const config = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
-      'process.env.NODE_ENV': JSON.stringify(nodeEnv),
-    }),
+    new webpack.EnvironmentPlugin({ NODE_ENV: 'production' }),
     new HtmlWebpackPlugin({
       template: `${sourceDir}/index.html`,
       hash: true,
@@ -72,9 +70,3 @@ const config = {
     }),
   ],
 };
-
-if (isDebugEnabled) {
-  config.devtool = 'source-map';
-}
-
-module.exports = config;

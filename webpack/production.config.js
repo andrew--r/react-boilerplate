@@ -1,10 +1,11 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const baseConfig = require('./base.config');
+const { isDebugEnabled } = require('../config');
 
 const extractCSS = new ExtractTextPlugin('app.css');
 
-module.exports = {
+const config = {
   ...baseConfig,
 
   mode: 'production',
@@ -43,3 +44,9 @@ module.exports = {
     ],
   },
 };
+
+if (isDebugEnabled) {
+  config.devtool = 'source-map';
+}
+
+module.exports = config;
