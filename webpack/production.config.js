@@ -1,9 +1,7 @@
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./base.config');
 const { isDebugEnabled } = require('../config');
-
-const extractCSS = new ExtractTextPlugin('app.css');
 
 const config = {
   ...baseConfig,
@@ -12,7 +10,7 @@ const config = {
 
   plugins: [
     ...baseConfig.plugins,
-    extractCSS,
+    new MiniCssExtractPlugin(),
     new UglifyJsPlugin({
       sourceMap: true,
       uglifyOptions: {
@@ -29,7 +27,8 @@ const config = {
       ...baseConfig.module.rules,
       {
         test: /\.css$/,
-        use: extractCSS.extract([
+        use: [
+          MiniCssExtractPlugin.loader,
           {
             loader: 'css-loader',
             options: {
@@ -39,7 +38,7 @@ const config = {
             },
           },
           'postcss-loader',
-        ]),
+        ],
       },
     ],
   },
