@@ -11,8 +11,6 @@
   },
   "scripts": {
     "start": "NODE_ENV=development webpack-dev-server",
-    "storybook": "start-storybook -p 9001",
-    "build-storybook": "build-storybook",
     "prebuild": "rm -rf ./build && mkdir ./build",
     "build": "NODE_ENV=production webpack",
     "test": "npm-run-all --parallel test:*",
@@ -33,7 +31,6 @@
     "react-hot-loader": "4.3.4"
   },
   "devDependencies": {
-    "@storybook/react": "3.4.6",
     "autoprefixer": "9.1.0",
     "babel-core": "6.26.3",
     "babel-eslint": "8.2.6",
