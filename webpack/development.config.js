@@ -1,9 +1,10 @@
 const webpack = require('webpack');
+const merge = require('webpack-merge');
 const baseConfig = require('./base.config');
 
-module.exports = {
-  ...baseConfig,
-
+module.exports = merge.strategy({
+  entry: 'prepend',
+})(baseConfig, {
   mode: 'development',
   devtool: 'eval-source-map',
 
@@ -11,15 +12,12 @@ module.exports = {
     'react-hot-loader/patch',
     'webpack-dev-server/client?http://localhost:3000',
     'webpack/hot/only-dev-server',
-    ...baseConfig.entry,
   ],
 
-  plugins: [...baseConfig.plugins, new webpack.HotModuleReplacementPlugin()],
+  plugins: [new webpack.HotModuleReplacementPlugin()],
 
   module: {
-    ...baseConfig.module,
     rules: [
-      ...baseConfig.module.rules,
       {
         test: /\.css$/,
         use: [
@@ -44,4 +42,4 @@ module.exports = {
     historyApiFallback: true,
     hot: true,
   },
-};
+});

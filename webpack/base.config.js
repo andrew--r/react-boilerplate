@@ -1,6 +1,6 @@
 const webpack = require('webpack');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const { sourceDir, buildDir } = require('../config');
+const { sourceDir, buildDir } = require('./common');
 
 module.exports = {
   entry: [`${sourceDir}/index.js`, `${sourceDir}/global.css`],

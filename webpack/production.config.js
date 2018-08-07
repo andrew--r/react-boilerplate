@@ -1,15 +1,13 @@
+const merge = require('webpack-merge');
 const UglifyJsPlugin = require('uglifyjs-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const baseConfig = require('./base.config');
-const { isDebugEnabled } = require('../config');
+const { isDebugEnabled } = require('./common');
 
-const config = {
-  ...baseConfig,
-
+const config = merge(baseConfig, {
   mode: 'production',
 
   plugins: [
-    ...baseConfig.plugins,
     new MiniCssExtractPlugin(),
     new UglifyJsPlugin({
       sourceMap: true,
@@ -22,9 +20,7 @@ const config = {
   ],
 
   module: {
-    ...baseConfig.module,
     rules: [
-      ...baseConfig.module.rules,
       {
         test: /\.css$/,
         use: [
@@ -42,7 +38,7 @@ const config = {
       },
     ],
   },
-};
+});
 
 if (isDebugEnabled) {
   config.devtool = 'source-map';
